@@ -36,3 +36,11 @@ function translateWord() {
         }
     }, 1000);
 }
+
+function saveTranslation() {
+    const word = document.getElementById("wordInput").value.trim();
+    const translation = document.getElementById("translationResult").innerText;
+    favorites.push({ word, translation });
+    updateFavorites();
+    document.getElementById("saveButton").disabled = true;
+}
