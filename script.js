@@ -61,3 +61,6 @@ function updateFavorites() {
         favoritesList.appendChild(listItem);
     });
 }
+
+document.getElementById("translateButton").onclick = translateWord;
+document.getElementById("saveButton").onclick = saveTranslation;
