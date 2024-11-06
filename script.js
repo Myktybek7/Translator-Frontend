@@ -20,3 +20,19 @@ const dictionary = {
     "book": "книга",
     "computer": "компьютер"
 };
+
+let favorites = [];
+
+function translateWord() {
+    const word = document.getElementById("wordInput").value.trim();
+    setTimeout(() => {
+        const translation = dictionary[word.toLowerCase()];
+        if (translation) {
+            document.getElementById("translationResult").innerText = translation;
+            document.getElementById("saveButton").disabled = false;
+        } else {
+            document.getElementById("translationResult").innerText = "Перевод не найден";
+            document.getElementById("saveButton").disabled = true;
+        }
+    }, 1000);
+}
