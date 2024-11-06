@@ -44,3 +44,20 @@ function saveTranslation() {
     updateFavorites();
     document.getElementById("saveButton").disabled = true;
 }
+
+function updateFavorites() {
+    const favoritesList = document.getElementById("favoritesList");
+    favoritesList.innerHTML = "";
+    favorites.forEach((item, index) => {
+        const listItem = document.createElement("li");
+        listItem.innerText = `${item.word} - ${item.translation}`;
+        const removeButton = document.createElement("button");
+        removeButton.innerText = "Удалить";
+        removeButton.onclick = () => {
+            favorites.splice(index, 1);
+            updateFavorites();
+        };
+        listItem.appendChild(removeButton);
+        favoritesList.appendChild(listItem);
+    });
+}
